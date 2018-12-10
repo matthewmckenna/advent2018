@@ -1,7 +1,7 @@
 """
 utility functions for Advent of Code 2018.
 """
-from typing import List
+from typing import Iterator, List
 
 
 def txt_to_numbers(fname: str) -> List[int]:
@@ -10,3 +10,9 @@ def txt_to_numbers(fname: str) -> List[int]:
         data = [int(number) for number in f]
 
     return data
+
+
+def comma_separated_str_to_int_iterator(s: str) -> Iterator[int]:
+    """turn a comma separated string of numbers into an iterable of ints"""
+    for number in s.replace(',', '').split():
+        yield int(number)
