@@ -16,3 +16,10 @@ def comma_separated_str_to_int_iterator(s: str) -> Iterator[int]:
     """turn a comma separated string of numbers into an iterable of ints"""
     for number in s.replace(',', '').split():
         yield int(number)
+
+
+def read_strings_from_file(fname: str) -> Iterator[str]:
+    """read a file and yield strings from it"""
+    with open(fname, 'rt') as f:
+        for line in f:
+            yield line.strip()
